@@ -7,12 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-        <h1>BMI Calculator</h1>
-        <input type="number" id="weight" placeholder="Enter your weight (kg)" required>
-        <input type="number" id="height" placeholder="Enter your height (cm)" required>
-        <button onclick="calculateBMI()">Calculate</button>
-        <div class="result" id="result"></div>
+    <div class="container">
+        <div class="calculator">
+            <h1>BMI Calculator</h1>
+            <p>BMI (Body Mass Index) helps you understand if your body weight is healthy based on your height and weight.</p>
+            <div class="inputs">
+                <input type="number" id="weight" placeholder="Enter your weight (kg)" required>
+                <input type="number" id="height" placeholder="Enter your height (cm)" required>
+            </div>
+            <button onclick="calculateBMI()">Calculate</button>
+            <div class="result" id="result"></div>
+        </div>
+
+        <div class="info">
+            <h2>Importance of Maintaining a Healthy BMI</h2>
+            <p>
+                A healthy BMI reduces the risk of diseases such as diabetes, heart problems, and obesity-related complications. 
+                It helps improve overall physical fitness and enhances mental well-being.
+            </p>
+            <h2>Tips to Maintain a Healthy BMI</h2>
+            <ul>
+                <li>Follow a balanced diet with plenty of fruits, vegetables, and whole grains.</li>
+                <li>Engage in regular physical activity like walking, jogging, or yoga.</li>
+                <li>Monitor your weight and BMI regularly to stay on track.</li>
+                <li>Stay hydrated and ensure proper sleep patterns.</li>
+                <li>Avoid excessive sugar, processed foods, and unhealthy fats.</li>
+            </ul>
+        </div>
     </div>
 
     <script src="script.js"></script>
