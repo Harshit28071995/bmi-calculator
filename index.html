@@ -5,37 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="calculator">
+        <div class="card calculator">
             <h1>BMI Calculator</h1>
-            <p>BMI (Body Mass Index) helps you understand if your body weight is healthy based on your height and weight.</p>
+            <p>Calculate your Body Mass Index and get personalized tips for a healthy lifestyle.</p>
             <div class="inputs">
-                <input type="number" id="weight" placeholder="Enter your weight (kg)" required>
-                <input type="number" id="height" placeholder="Enter your height (cm)" required>
+                <input type="number" id="weight" placeholder="Weight (kg)" required>
+                <input type="number" id="height" placeholder="Height (cm)" required>
             </div>
-            <button onclick="calculateBMI()">Calculate</button>
+            <button onclick="calculateBMI()">Calculate BMI</button>
             <div class="result" id="result"></div>
         </div>
 
-        <div class="info">
-            <h2>Importance of Maintaining a Healthy BMI</h2>
-            <p>
-                A healthy BMI reduces the risk of diseases such as diabetes, heart problems, and obesity-related complications. 
-                It helps improve overall physical fitness and enhances mental well-being.
-            </p>
-            <h2>Tips to Maintain a Healthy BMI</h2>
+        <div class="card info">
+            <h2>Why is BMI Important?</h2>
+            <p>Body Mass Index (BMI) is a quick and easy way to check if your weight is healthy compared to your height. Maintaining a healthy BMI helps you reduce the risk of diseases and stay active.</p>
+            <h2>Tips to Maintain BMI</h2>
             <ul>
-                <li>Follow a balanced diet with plenty of fruits, vegetables, and whole grains.</li>
-                <li>Engage in regular physical activity like walking, jogging, or yoga.</li>
-                <li>Monitor your weight and BMI regularly to stay on track.</li>
-                <li>Stay hydrated and ensure proper sleep patterns.</li>
-                <li>Avoid excessive sugar, processed foods, and unhealthy fats.</li>
+                <li>Follow a balanced diet with fresh fruits and vegetables.</li>
+                <li>Exercise regularly—choose something you enjoy!</li>
+                <li>Stay hydrated and get enough sleep every night.</li>
+                <li>Avoid excessive sugar, junk food, and saturated fats.</li>
+                <li>Track your progress and make sustainable changes.</li>
             </ul>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

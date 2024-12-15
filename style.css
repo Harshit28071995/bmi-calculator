@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: url('file:///C:/Users/harsh/Downloads/bmi.webp') no-repeat center center/cover;
+    background: url('https://source.unsplash.com/1920x1080/?fitness,health') no-repeat center center/cover;
     color: #fff;
     min-height: 100vh;
     display: flex;
@@ -25,7 +25,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text visibility */
     z-index: 0;
 }
 
@@ -43,11 +43,11 @@ body::before {
 
 /* Card Styling */
 .card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #333;
     border-radius: 12px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
     flex: 1 1 300px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -55,71 +55,79 @@ body::before {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Calculator Section */
 .calculator h1 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 10px;
-    color: #4CAF50;
+    color: #2E7D32;
 }
 
 .calculator p {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 20px;
     color: #555;
 }
 
 .inputs {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 15px;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .inputs input {
-    flex: 1;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.inputs input:focus {
+    border-color: #4CAF50;
+    outline: none;
 }
 
 button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
     background-color: #388E3C;
+    transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .result {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    color: #4CAF50;
+    color: #2E7D32;
 }
 
 /* Info Section */
 .info h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 15px;
     color: #4CAF50;
 }
 
 .info p {
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
     text-align: left;
+    line-height: 1.6;
 }
 
 .info ul {
@@ -131,5 +139,17 @@ button:hover {
 
 .info ul li {
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
 }

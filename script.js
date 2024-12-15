@@ -1,25 +1,57 @@
+// Calculate BMI function
 function calculateBMI() {
-    const weight = document.getElementById('weight').value;
-    const height = document.getElementById('height').value;
+    const weightInput = document.getElementById("weight");
+    const heightInput = document.getElementById("height");
+    const resultDiv = document.getElementById("result");
 
-    if (weight === '' || height === '') {
-        document.getElementById('result').innerText = "Please enter both weight and height.";
+    // Input validation
+    const weight = parseFloat(weightInput.value);
+    const height = parseFloat(heightInput.value);
+
+    if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+        resultDiv.textContent = "Please enter valid values for weight and height!";
+        resultDiv.style.color = "red";
         return;
     }
 
+    // Calculate BMI
     const heightInMeters = height / 100;
-    const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+    const bmi = (weight / (heightInMeters ** 2)).toFixed(2);
 
-    let category = '';
+    // Display result with category
+    let category = "";
     if (bmi < 18.5) {
         category = "Underweight";
-    } else if (bmi >= 18.5 && bmi < 24.9) {
+        resultDiv.style.color = "#1E88E5";
+    } else if (bmi < 24.9) {
         category = "Normal weight";
-    } else if (bmi >= 25 && bmi < 29.9) {
+        resultDiv.style.color = "#43A047";
+    } else if (bmi < 29.9) {
         category = "Overweight";
+        resultDiv.style.color = "#FB8C00";
     } else {
-        category = "Obese";
+        category = "Obesity";
+        resultDiv.style.color = "#E53935";
     }
 
-    document.getElementById('result').innerText = `Your BMI is ${bmi} (${category}).`;
+    resultDiv.innerHTML = `
+        <p>Your BMI is <strong>${bmi}</strong></p>
+        <p>Category: <strong>${category}</strong></p>
+    `;
 }
+
+// Clear inputs when page loads
+window.onload = function () {
+    document.getElementById("weight").value = "";
+    document.getElementById("height").value = "";
+    document.getElementById("result").textContent = "";
+};
+
+// Add hover effect for button
+const calculateButton = document.querySelector("button");
+calculateButton.addEventListener("mouseenter", () => {
+    calculateButton.style.transform = "scale(1.05)";
+});
+calculateButton.addEventListener("mouseleave", () => {
+    calculateButton.style.transform = "scale(1)";
+});
