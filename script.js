@@ -1,76 +1,75 @@
-// Calculate BMI function
-function calculateBMI() {
-    // 1. Get all input elements
+function generateReport() {
+    // 1. Get DOM Elements
     const nameInput = document.getElementById("username");
     const emailInput = document.getElementById("useremail");
     const weightInput = document.getElementById("weight");
     const heightInput = document.getElementById("height");
-    const resultDiv = document.getElementById("result");
+    const reportContainer = document.getElementById("report-container");
 
-    // 2. Get values from inputs
+    // 2. Extract Values
     const userName = nameInput.value.trim();
     const userEmail = emailInput.value.trim();
     const weight = parseFloat(weightInput.value);
     const height = parseFloat(heightInput.value);
 
-    // reset result style
-    resultDiv.style.color = "#333";
-
-    // 3. Validate Name and Email first
-    if (userName === "" || userEmail === "") {
-        resultDiv.innerHTML = "<p>Please enter your Name and Email to get the report.</p>";
-        resultDiv.style.color = "#b71c1c"; // Use the dark red brand color
+    // 3. Validation UI
+    if (!userName || !userEmail || isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+        alert("Please fill out all fields with valid information to generate your report.");
         return;
     }
 
-    // 4. Validate numeric inputs
-    if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-        resultDiv.innerHTML = "<p>Please enter valid positive numbers for weight and height!</p>";
-        resultDiv.style.color = "#b71c1c";
-        return;
-    }
-
-    // 5. Calculate BMI
+    // 4. BMI Logic
     const heightInMeters = height / 100;
-    const bmi = (weight / (heightInMeters ** 2)).toFixed(2);
+    const bmi = (weight / (heightInMeters ** 2)).toFixed(1); // One decimal point is cleaner
 
-    // Determine Category and Color
+    // Determine Category and UI Colors
     let category = "";
-    let categoryColor = "";
+    let colorCode = "";
 
     if (bmi < 18.5) {
         category = "Underweight";
-        categoryColor = "#1E88E5"; // Blue
+        colorCode = "#3b82f6"; // Blue
     } else if (bmi < 24.9) {
-        category = "Normal weight";
-        categoryColor = "#43A047"; // Green
+        category = "Healthy Weight";
+        colorCode = "#10b981"; // Emerald Green
     } else if (bmi < 29.9) {
         category = "Overweight";
-        categoryColor = "#FB8C00"; // Orange
+        colorCode = "#f59e0b"; // Amber
     } else {
-        category = "Obesity";
-        categoryColor = "#E53935"; // Red
+        category = "Obese";
+        colorCode = "#ef4444"; // Red
     }
 
-    // 6. Display Personalized Report
-    // We use backticks (`) for template literals to easily insert variables like ${userName}
-    resultDiv.innerHTML = `
-        <div style="border-top: 2px solid #eee; padding-top: 20px;">
-            <h3 style="color: #b71c1c; margin-bottom: 10px;">Health Report for ${userName}</h3>
-            <p style="font-size: 1.1em; margin-bottom: 5px;">Your BMI Score: <strong style="font-size: 1.4em;">${bmi}</strong></p>
-            <p style="font-size: 1.1em;">Category: <strong style="color: ${categoryColor};">${category}</strong></p>
-            <p style="font-size: 0.9em; color: #777; margin-top: 15px; font-style: italic;">
-                A copy of this report will be sent to: ${userEmail} <br>(Note: Email sending requires backend integration).
-            </p>
+    // 5. Inject Modern UI Report
+    reportContainer.innerHTML = `
+        <div class="report-card">
+            <div class="report-header">
+                <h3 style="color: var(--text-main); font-size: 18px;">Analysis for ${userName}</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">Report sent to: ${userEmail}</p>
+            </div>
+            
+            <p style="font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">Your Body Mass Index</p>
+            <div class="bmi-score" style="color: ${colorCode};">${bmi}</div>
+            
+            <div style="display: inline-block; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 14px; background-color: ${colorCode}15; color: ${colorCode};">
+                ${category}
+            </div>
+
+            <h4 style="margin-top: 32px; font-size: 16px; color: var(--text-main);">Recommendations</h4>
+            <ul class="tips-list">
+                <li>Maintain a balanced diet rich in whole foods.</li>
+                <li>Aim for at least 150 minutes of moderate activity weekly.</li>
+                <li>Stay hydrated—drink at least 2 liters of water daily.</li>
+                <li>Consult a healthcare provider for personalized advice.</li>
+            </ul>
         </div>
     `;
 }
 
-// Clear all inputs when page loads
+// Clear inputs on load
 window.onload = function () {
     document.getElementById("username").value = "";
     document.getElementById("useremail").value = "";
     document.getElementById("weight").value = "";
     document.getElementById("height").value = "";
-    document.getElementById("result").textContent = "";
 };
