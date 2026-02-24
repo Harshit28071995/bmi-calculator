@@ -41,9 +41,10 @@ body::before {
     z-index: 1; /* Keeps content above the overlay */
 }
 
-/* Card Styling */
+/* Card Styling - UPDATED WITH SPLIT COLORS */
 .card {
-    background: rgba(255, 255, 255, 0.95);
+    /* Top half light red (#ffcccb), Bottom half light green (#e8f5e9) */
+    background: linear-gradient(180deg, #ffcccb 50%, #e8f5e9 50%);
     color: #333;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -51,10 +52,13 @@ body::before {
     flex: 1 1 300px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .card:hover {
     transform: translateY(-5px);
+    /* Slightly brightens the split colors on hover */
+    background: linear-gradient(180deg, #ffbaba 50%, #dcf0dd 50%);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -62,7 +66,7 @@ body::before {
 .calculator h1 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #2E7D32;
+    color: #b71c1c; /* Dark red to contrast with the light red background */
 }
 
 .calculator p {
@@ -84,6 +88,7 @@ body::before {
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.9); /* Ensures inputs are readable over the red */
 }
 
 .inputs input:focus {
@@ -120,7 +125,7 @@ button:hover {
 .info h2 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #4CAF50;
+    color: #2E7D32; /* Dark green to contrast with the light green background */
 }
 
 .info p {
