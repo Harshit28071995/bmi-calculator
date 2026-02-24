@@ -41,7 +41,7 @@ body::before {
     z-index: 1; /* Keeps content above the overlay */
 }
 
-/* Card Styling - UPDATED WITH SPLIT COLORS */
+/* Card Styling - SPLIT COLORS */
 .card {
     /* Top half light red (#ffcccb), Bottom half light green (#e8f5e9) */
     background: linear-gradient(180deg, #ffcccb 50%, #e8f5e9 50%);
@@ -66,7 +66,7 @@ body::before {
 .calculator h1 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #b71c1c; /* Dark red to contrast with the light red background */
+    color: #b71c1c; /* Dark red */
 }
 
 .calculator p {
@@ -78,7 +78,7 @@ body::before {
 .inputs {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 15px; /* This handles spacing between all 4 inputs */
     margin-bottom: 20px;
 }
 
@@ -88,7 +88,7 @@ body::before {
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
-    background: rgba(255, 255, 255, 0.9); /* Ensures inputs are readable over the red */
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .inputs input:focus {
@@ -106,6 +106,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Makes button full width */
 }
 
 button:hover {
@@ -117,15 +118,14 @@ button:hover {
 .result {
     margin-top: 20px;
     font-size: 18px;
-    font-weight: bold;
-    color: #2E7D32;
+    text-align: left; /* Better for report format */
 }
 
 /* Info Section */
 .info h2 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #2E7D32; /* Dark green to contrast with the light green background */
+    color: #2E7D32; /* Dark green */
 }
 
 .info p {
