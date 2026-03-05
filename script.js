@@ -22,6 +22,13 @@ function generateReport() {
     const heightInMeters = height / 100;
     const bmi = (weight / (heightInMeters ** 2)).toFixed(1); // One decimal point is cleaner
 
+    // Expose values globally for Adobe Launch data elements
+    window.userName = userName;
+    window.userEmail = userEmail;
+    window.userWeight = weight;
+    window.userHeight = height;
+    window.userBMI = bmi;
+
     // Determine Category and UI Colors
     let category = "";
     let colorCode = "";
